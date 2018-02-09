@@ -18,7 +18,7 @@
         }
        
         this.changeLayer = (e) => {
-            this.store.trigger('ACTION', {
+            this.opts.store.trigger('ACTION', {
                 action: 'CHANGE_LAYER',
                 data: {
                     layerName: layername,
@@ -27,7 +27,7 @@
             })
         }
 
-        this.store.on('CHANGE', () => {
+        this.opts.store.on('CHANGE', () => {
             this.isActive = (activelayers[layername] === this.layerSrc) ? true : false;
         })
     </script>

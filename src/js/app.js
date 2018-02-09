@@ -5,7 +5,6 @@ import sidebar from './components/sidebar.tag'
 import ColourList from './components/ColourList.tag'
 import Colour from './components/Colour.tag'
 import ChangingRoom from './components/ChangingRoom.tag'
-import StoreMixin from './storeMixin.js'
 
 const initialState = {
     activeLayers: {
@@ -95,7 +94,5 @@ const initialState = {
     }
 }
 
-//use a mix in to make our store available to all tags globally
-riot.mixin(StoreMixin(new Store(initialState)));
-
-riot.mount('*');
+const store = new Store(initialState);
+riot.mount('*', {store:store});
